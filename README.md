@@ -1,8 +1,10 @@
-# Sleepy — Android alarm MVP
+# Sleepy 1.2 — Android alarm app
 
-Первый MVP приложения-будильника на Kotlin + Jetpack Compose.
+Текущая версия проекта: **1.2**.
 
-## Возможности MVP
+Ранний MVP приложения-будильника на Kotlin + Jetpack Compose.
+
+## Возможности
 - несколько будильников и повтор по дням недели;
 - точное планирование через AlarmManager;
 - выбор локального аудиофайла;
