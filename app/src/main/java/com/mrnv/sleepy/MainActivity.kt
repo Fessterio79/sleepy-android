@@ -115,7 +115,7 @@ class MainActivity:ComponentActivity(){
    Row(horizontalArrangement=Arrangement.spacedBy(3.dp)){DayNames.forEachIndexed{i,d->val n=i+1;FilterChip(selected=n in days,onClick={days=if(n in days)days-n else days+n},label={Text(d)})}}
    Text("ЗВУК",color=Muted,fontSize=11.sp,fontWeight=FontWeight.Bold)
    Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){FilterChip(selected=type=="default",onClick={type="default"},label={Text("Обычный")});FilterChip(selected=type=="file",onClick={type="file"},label={Text("Музыка")});FilterChip(selected=type=="radio",onClick={type="radio"},label={Text("Радио")})}
-   if(type=="file")Button(onClick={picker.launch(arrayOf("audio/*")},modifier=Modifier.fillMaxWidth()){Text(if(fileUri.isBlank())"Выбрать аудиофайл" else "Выбрать другой файл")}
+   if(type=="file")Button(onClick={picker.launch(arrayOf("audio/*"))},modifier=Modifier.fillMaxWidth()){Text(if(fileUri.isBlank())"Выбрать аудиофайл" else "Выбрать другой файл")}
    if(type=="radio")OutlinedTextField(value=radioUrl,onValueChange={radioUrl=it},label={Text("URL радиопотока")},placeholder={Text("https://...")},singleLine=true,modifier=Modifier.fillMaxWidth())
    Text(if(days.isEmpty())"Сработает один раз" else "Повтор по выбранным дням",color=Muted,fontSize=12.sp)
   }
