@@ -65,7 +65,7 @@ class MainActivity:ComponentActivity(){
  }
 }
 @Composable private fun Header(title:String,subtitle:String){Column{Text("S L E E P Y",color=Accent,fontSize=11.sp,fontWeight=FontWeight.Bold);Spacer(Modifier.height(10.dp));Text(title,color=Color.White,fontSize=30.sp,fontWeight=FontWeight.Bold);Text(subtitle,color=Muted,fontSize=14.sp)}}
-@Composable private fun CardBox(content:@Composable ColumnScope.()->Unit){Surface(color=Card,shape=RoundedCornerShape(24.dp),modifier=Modifier.fillMaxWidth(),content=content)}
+@Composable private fun CardBox(content:@Composable ColumnScope.()->Unit){Surface(color=Card,shape=RoundedCornerShape(24.dp),modifier=Modifier.fillMaxWidth()){Column(content=content)}}
 
 @Composable private fun HomeScreen(alarms:List<AlarmModel>,toggle:(AlarmModel)->Unit,add:(AlarmModel)->Unit,edit:(AlarmModel)->Unit,delete:(AlarmModel)->Unit){
  var editing by remember{mutableStateOf<AlarmModel?>(null)}
