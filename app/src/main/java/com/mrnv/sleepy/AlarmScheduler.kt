@@ -19,7 +19,7 @@ object AlarmScheduler {
    };if(!found)return
   }
   val manager=context.getSystemService(AlarmManager::class.java)
-  if(manager.canScheduleExactAlarms()){val show=PendingIntent.getActivity(context,alarm.id+10000,Intent(context,MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE);manager.setAlarmClock(AlarmManager.AlarmClockInfo(next.timeInMillis,show),pending(context,alarm.id))}
+  if(android.os.Build.VERSION.SDK_INT<31 || manager.canScheduleExactAlarms()){val show=PendingIntent.getActivity(context,alarm.id+10000,Intent(context,MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE);manager.setAlarmClock(AlarmManager.AlarmClockInfo(next.timeInMillis,show),pending(context,alarm.id))}
  }
  fun rescheduleAll(context:Context)=AlarmStore.load(context).forEach{schedule(context,it)}
 }
