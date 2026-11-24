@@ -22,9 +22,9 @@ class AlarmService:Service(){
   play(alarm);return START_NOT_STICKY
  }
  private fun vibrate(){
-  vibrator=if(Build.VERSION.SDK_INT>=31)getSystemService(VibratorManager::class.java).defaultVibrator else @Suppress("DEPRECATION") getSystemService(Vibrator::class.java)
+  vibrator=if(Build.VERSION.SDK_INT>=31)getSystemService(VibratorManager::class.java).defaultVibrator else getSystemService(Vibrator::class.java)
   val pattern=longArrayOf(0,350,250,350,250,600)
-  if(Build.VERSION.SDK_INT>=26)vibrator?.vibrate(VibrationEffect.createWaveform(pattern,0)) else @Suppress("DEPRECATION") vibrator?.vibrate(pattern,0)
+  vibrator?.vibrate(VibrationEffect.createWaveform(pattern,0))
  }
  private fun play(alarm:AlarmModel?){
   player?.release()
